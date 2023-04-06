@@ -63,18 +63,12 @@ public class ChiTietSPServlet extends HttpServlet {
 //        ChiTietSp ctsp = this.chiTietSPRepo.findByMa(id);
 //        request.setAttribute("ctsp", ctsp);
 //
-//        SanPham sp = this.spRepo.findByMa(id);
-//        request.setAttribute("sp", sp);
-//
-//        Nsx nsx = this.nsxRepo.findByMa(id);
-//        request.setAttribute("nsx", nsx);
-//
-//        MauSac ms = this.msRepo.findByMa(id);
-//        request.setAttribute("ms", ms);
-//
-//        DongSp dongsp = this.dongSPRepo.findByMa(id);
-//        request.setAttribute("dongsp", dongsp);
-
+//        request.setAttribute("danhSachSP",this.spRepo.findAll());
+//        request.setAttribute("danhSachNsx",this.nsxRepo.findAll());
+//        request.setAttribute("danhSachD",this.nsxRepo.findAll());
+//        String ma = request.getParameter("ma");
+//        NhanVien nv = this.nvRepo.findByMa(ma);
+//        request.setAttribute("nv", nv);
         request.setAttribute("view", "/view/chi_tiet_sp/edit.jsp");
         request.getRequestDispatcher("/view/layout.jsp")
                 .forward(request, response);
@@ -148,25 +142,24 @@ protected void store(
         HttpServletRequest request,
         HttpServletResponse response
 ) throws ServletException, IOException {
-    ChiTietSp ctsp = new ChiTietSp();
 
+    ChiTietSp domainModelKH = new ChiTietSp();
     String maSP = request.getParameter("sp");
     String maNSX = request.getParameter("nsx");
     String maMS = request.getParameter("ms");
     String maDongSP = request.getParameter("dongsp");
-
-    ctsp.setSp(spRepo.findByMa(maSP));
-    ctsp.setNsx(nsxRepo.findByMa(maNSX));
-    ctsp.setMs(msRepo.findByMa(maMS));
-    ctsp.setDongsp(dongSPRepo.findByMa(maDongSP));
+    domainModelKH.setSp(spRepo.findByMa(maSP));
+    domainModelKH.setNsx(nsxRepo.findByMa(maNSX));
+    domainModelKH.setMs(msRepo.findByMa(maMS));
+    domainModelKH.setDongsp(dongSPRepo.findByMa(maDongSP));
     Map<String, String[] > parMap = new HashMap<>(request.getParameterMap());
     parMap.remove("sp");
     parMap.remove("nsx");
     parMap.remove("ms");
     parMap.remove("dongsp");
     try {
-        BeanUtils.populate(ctsp, parMap);
-        this.chiTietSPRepo.insert(ctsp);
+        BeanUtils.populate(domainModelKH, parMap);
+        this.chiTietSPRepo.insert(domainModelKH);
     } catch (Exception e) {
         e.printStackTrace();
     }

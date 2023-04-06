@@ -83,7 +83,7 @@
                 <label>Chuc vu</label>
                 <select name="idCH" class="form-select">
                     <c:forEach items="${ danhSachCV }" var="cv">
-                        <option value="${ch.ma}" ${ch.ma=="${ch.ma}" ? "selected" : ""}>${ch.ten}</option>
+                        <option value="${cv.ma}" ${ch.ma=="${cv.ma}" ? "selected" : ""}>${ch.ten}</option>
                     </c:forEach>
                 </select>
             </div>

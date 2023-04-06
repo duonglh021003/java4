@@ -18,7 +18,7 @@
 </div>
 <div class="col-8 offset-2">
     <form method="POST"
-          action="/Bai1_war_exploded/DongSP/update?id=${ dongsp.id }">
+          action="/Bai1_war_exploded/DongSP/update?ma=${ dongsp.ma }">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>

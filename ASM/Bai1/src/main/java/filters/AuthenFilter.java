@@ -12,6 +12,14 @@ import java.io.IOException;
 
 @WebFilter({
         "/khach-hang/*",
+        "/chi-tiet-sp/*",
+        "/san-pham/*",
+        "/Nsx/*",
+        "/mau-sac/*",
+        "/DongSP/*",
+        "/chuc-vu/*",
+        "/cua-hang/*",
+        "/nhan-vien/*",
 })
 
 public class AuthenFilter implements Filter {

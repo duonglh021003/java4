@@ -5,6 +5,7 @@ import Repository.CuaHangRepository;
 import Repository.KhachHangRepository;
 import Repository.NhanVienRepository;
 import domain_model.ChucVu;
+import domain_model.CuaHang;
 import domain_model.NhanVien;
 import domain_model.SanPham;
 import jakarta.servlet.*;
@@ -149,23 +150,24 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
 
-
+        String ma = request.getParameter("ma");
+        NhanVien nv = this.nvRepo.findByMa(ma);
         try {
-            String ma = request.getParameter("ma");
-            NhanVien nv = this.nvRepo.findByMa(ma);
-
-            String maCV = request.getParameter("cv");
-            String maCH = request.getParameter("ch");
-            nv.setCh(chRepo.findByMa(maCH));
-            nv.setCv(cvRepo.findByMa(maCV));
-            Map<String, String[] > parMap = new HashMap<>(request.getParameterMap());
-            parMap.remove("cv");
-            parMap.remove("ch");
-            BeanUtils.populate(nv, parMap);
-            this.nvRepo.update(nv);
+            BeanUtils.populate(nv, request.getParameterMap());
         } catch (Exception e) {
             e.printStackTrace();
         }
+        String maCV  = request.getParameter("idCV");
+        String maCH  = request.getParameter("idCH");
+        Integer idCV  =Integer.parseInt(maCV);
+        Integer idCH  =Integer.parseInt(maCH);
+        ChucVu chucVu = this.cvRepo.findById(idCV);
+        CuaHang cuaHang = this.chRepo.findById(idCH);
+        nv.setCv(chucVu);
+        nv.setCh(cuaHang);
+
+        nvRepo.update(nv);
+
         response.sendRedirect("/Bai1_war_exploded/nhan-vien/index");
     }
 }

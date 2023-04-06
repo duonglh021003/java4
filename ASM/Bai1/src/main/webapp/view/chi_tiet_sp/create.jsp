@@ -40,7 +40,7 @@
             <div class="col-6">
                 <label>IdNsx</label>
                 <select name="nsx" class="form-select"  >
-                    <c:forEach items="${ danhSachNsx }" var="nsx">
+                        <c:forEach items="${ danhSachNsx }" var="nsx">
                         <option value="${ nsx.ma }">${ nsx.ten }</option>
                     </c:forEach>
                 </select>
@@ -75,17 +75,17 @@
             </div>
             <div class="col-6">
                 <label>SoLuongTon</label>
-                <input type="text" name="slton" class="form-control" />
+                <input type="text" name="SoLuongTon" class="form-control" />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>GiaNhap</label>
-                <input type="text" name="gia_nhap" class="form-control" />
+                <input type="text" name="giaNhap" class="form-control" />
             </div>
             <div class="col-6">
                 <label>GiaBan</label>
-                <input type="text" name="gia_ban" class="form-control" />
+                <input type="text" name="giaBan" class="form-control" />
             </div>
         </div>
         <div class="row mt-3">

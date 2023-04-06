@@ -48,7 +48,6 @@ public class NhanVienRepository {
         }
     }
 
-
     public void delete(NhanVien nv)
     {
         Transaction transaction = this.hSession.getTransaction();
@@ -96,4 +95,6 @@ public class NhanVienRepository {
         query.setParameter(1, ma);
         return query.getSingleResult();
     }
+
+
 }

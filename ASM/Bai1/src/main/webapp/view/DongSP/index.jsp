@@ -41,13 +41,13 @@
                     <td>${ dongsp.ten }</td>
                     <td>
                         <a class="btn btn-primary"
-                           href="/Bai1_war_exploded/DongSP/edit?id=${ dongsp.id }">
+                           href="/Bai1_war_exploded/DongSP/edit?ma=${ dongsp.ma }">
                             Cập nhật
                         </a>
                     </td>
                     <td>
                         <a class="btn btn-danger"
-                           href="/Bai1_war_exploded/DongSP/delete?id=${ dongsp.id }">
+                           href="/Bai1_war_exploded/DongSP/delete?ma=${ dongsp.ma }">
                             Xóa
                         </a>
                     </td>

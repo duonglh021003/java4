@@ -64,7 +64,21 @@ public class NhanVien {
     public NhanVien() {
     }
 
-
+    public NhanVien(int id, String ma, String ho, String tenDem, String ten, String gioiTinh, Date ngaySinh, String diaChi, String sdt, String matKhau, CuaHang ch, ChucVu cv, Integer trangThai) {
+        Id = id;
+        this.ma = ma;
+        this.ho = ho;
+        this.tenDem = tenDem;
+        this.ten = ten;
+        this.gioiTinh = gioiTinh;
+        this.ngaySinh = ngaySinh;
+        this.diaChi = diaChi;
+        this.sdt = sdt;
+        this.matKhau = matKhau;
+        this.ch = ch;
+        this.cv = cv;
+        this.trangThai = trangThai;
+    }
 
     public int getId() {
         return Id;

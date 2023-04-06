@@ -61,7 +61,7 @@ public class CuaHangRepository {
         }
     }
 
-    public CuaHang findById(String id) {
+    public CuaHang findById(Integer id) {
         return this.hSession.find(CuaHang.class, id);
     }
 

@@ -57,7 +57,7 @@ public class ChucVuRepository {
         }
     }
 
-    public ChucVu findById(String id) {
+    public ChucVu findById(Integer id) {
         return this.hSession.find(ChucVu.class, id);
     }
 
@@ -74,4 +74,5 @@ public class ChucVuRepository {
         query.setParameter(1, ma);
         return query.getSingleResult();
     }
+
 }

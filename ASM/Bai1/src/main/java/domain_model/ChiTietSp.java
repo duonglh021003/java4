@@ -63,7 +63,18 @@ public class ChiTietSp {
     public ChiTietSp() {
     }
 
-
+    public ChiTietSp(int id, Integer namBH, String moTa, Integer soLuongTon, Double giaNhap, Double giaBan, SanPham sp, Nsx nsx, MauSac ms, DongSp dongsp) {
+        Id = id;
+        NamBH = namBH;
+        MoTa = moTa;
+        SoLuongTon = soLuongTon;
+        GiaNhap = giaNhap;
+        GiaBan = giaBan;
+        this.sp = sp;
+        this.nsx = nsx;
+        this.ms = ms;
+        this.dongsp = dongsp;
+    }
 
     public int getId() {
         return Id;
