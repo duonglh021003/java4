@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="f" uri="jakarta.tags.functions" %>
 <html>
 <head>
     <title>Title</title>
@@ -17,7 +19,7 @@
 <h1 style="text-align: center;">Nhân viên</h1>
 <div class="col-8 offset-2">
     <form method="POST"
-          action="/Bai1_war_exploded/nhan-vien/update?id=${ nv.id }">
+          action="/Bai1_war_exploded/nhan-vien/update?ma=${ nv.ma }">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
@@ -25,13 +27,13 @@
             </div>
             <div class="col-6">
                 <label>Họ</label>
-                <input type="text" name="ho" class="form-control" value="${ nv.ho }"/>
+                <input type="text" name="ho" class="form-control" value="${ nv.ho }" />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Tên đệm</label>
-                <input type="text" name="ten_dem" class="form-control" value="${ nv.ten_dem }" />
+                <input type="text" name="tenDem" class="form-control" value="${ nv.tenDem }" />
             </div>
             <div class="col-6">
                 <label>Tên</label>
@@ -41,20 +43,20 @@
         <div class="row mt-3">
             <div class="col-6">
                 <label>Giới tính</label>
-                <select name="gioi_tinh" class="form-select">
-                    <option value="nam" ${ nv.gioi_tinh == "nam" ? "selected" : "" }>nam</option>
-                    <option value="nu" ${ nv.gioi_tinh == "nu" ? "selected" : "" }>nữ</option>
+                <select name="gioiTinh" class="form-select">
+                    <option value="nam" ${ nv.gioiTinh == "nam" ? "selected" : "" }>nam</option>
+                    <option value="nu" ${ nv.gioiTinh == "nu" ? "selected" : "" }>nữ</option>
                 </select>
             </div>
             <div class="col-6">
                 <label>Ngày sinh</label>
-                <input type="date" name="ngay_sinh" class="form-control" value="${ nv.ngay_sinh }" />
+                <input type="date" name="ngaySinh" class="form-control" value="${ nv.ngaySinh }" />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Địa chỉ</label>
-                <input type="text" name="dia_chi" class="form-control" value="${ nv.dia_chi }" />
+                <input type="text" name="diaChi" class="form-control" value="${ nv.diaChi }" />
             </div>
             <div class="col-6">
                 <label>SDT</label>
@@ -64,30 +66,30 @@
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mật khẩu</label>
-                <input type="password" name="mat_khau" class="form-control" value="${ nv.mat_khau }"/>
+                <input type="password" name="matKhau" class="form-control" value="${ nv.matKhau }"/>
             </div>
             <div class="col-6">
-                <label>idCH</label>
+                <label>Cua hang</label>
                 <select name="idCH" class="form-select">
-                    <option value="maCH1001" ${ nv.idCH == "maCH1001" ? "selected" : "" }>maCH1001</option>
-                    <option value="maCH1002" ${ nv.idCH == "maCH1002" ? "selected" : "" }>maCH1002</option>
-                    <option value="maCH1003" ${ nv.idCH == "maCH1003" ? "selected" : "" }>maCH1003</option>
+                    <c:forEach items="${danhSachCH}" var="ch">
+                        <option value="${ch.ma}" ${ch.ma=="${ch.ma}" ? "selected" : ""}>${ch.ten}</option>
+                    </c:forEach>
                 </select>
             </div>
         </div>
 
         <div class="row mt-3">
             <div class="col-6">
-                <label>idCH</label>
+                <label>Chuc vu</label>
                 <select name="idCH" class="form-select">
-                    <option value="maCV1001" ${ nv.idCV == "maCV1001" ? "selected" : "" }>maCV1001</option>
-                    <option value="maCV1002" ${ nv.idCV == "maCV1002" ? "selected" : "" }>maCV1002</option>
-                    <option value="maCV1003" ${ nv.idCV == "maCV1003" ? "selected" : "" }>maCV1003</option>
+                    <c:forEach items="${ danhSachCV }" var="cv">
+                        <option value="${ch.ma}" ${ch.ma=="${ch.ma}" ? "selected" : ""}>${ch.ten}</option>
+                    </c:forEach>
                 </select>
             </div>
             <div class="col-6">
                 <label>trạng thái</label>
-                <input type="text" name="trang_thai" class="form-control" value="${ nv.trang_thai }"/>
+                <input type="text" name="trangThai" class="form-control" value="${ nv.trangThai }"/>
             </div>
         </div>
         <div class="row mt-3">

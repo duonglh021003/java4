@@ -71,11 +71,12 @@ public class CuaHangRepository {
         return query.getResultList();
     }
 
-    public CuaHang findByMa(Integer id)
+    public CuaHang findByMa(String ma)
     {
-        String hql = "SELECT obj FROM CuaHang obj WHERE obj.Id = ?1";
+        String hql = "SELECT obj FROM CuaHang obj WHERE obj.Ma = ?1";
         TypedQuery<CuaHang> query = this.hSession.createQuery(hql, CuaHang.class);
-        query.setParameter(1, id);
+        query.setParameter(1, ma);
         return query.getSingleResult();
     }
+
 }

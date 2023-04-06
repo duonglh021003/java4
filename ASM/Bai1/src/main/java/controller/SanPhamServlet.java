@@ -70,8 +70,8 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        SanPham sp = this.spRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        SanPham sp = this.spRepo.findByMa(ma);
         request.setAttribute("sp", sp);
 //        request.getRequestDispatcher("/view/san_pham/edit.jsp")
 //                .forward(request, response);
@@ -83,8 +83,8 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-       Integer id = Integer.parseInt(request.getParameter("id"));
-        SanPham sp = this.spRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        SanPham sp = this.spRepo.findByMa(ma);
         this.spRepo.delete(sp);
         response.sendRedirect("/Bai1_war_exploded/san-pham/index");
     }
@@ -121,8 +121,8 @@ public class SanPhamServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
-            Integer id = Integer.parseInt(request.getParameter("id"));
-            SanPham sp = this.spRepo.findByMa(id);
+            String ma = request.getParameter("ma");
+            SanPham sp = this.spRepo.findByMa(ma);
             BeanUtils.populate(sp, request.getParameterMap());
             this.spRepo.update(sp);
         } catch (Exception e) {

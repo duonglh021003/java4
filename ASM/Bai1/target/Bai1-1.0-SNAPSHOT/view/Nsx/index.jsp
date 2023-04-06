@@ -41,13 +41,13 @@
                     <td>${ nsx.ten }</td>
                     <td>
                         <a class="btn btn-primary"
-                           href="/Bai1_war_exploded/Nsx/edit?id=${ nsx.id }">
+                           href="/Bai1_war_exploded/Nsx/edit?ma=${ nsx.ma }">
                             Cập nhật
                         </a>
                     </td>
                     <td>
                         <a class="btn btn-danger"
-                           href="/Bai1_war_exploded/Nsx/delete?id=${ nsx.id }">
+                           href="/Bai1_war_exploded/Nsx/delete?ma=${ nsx.ma }">
                             Xóa
                         </a>
                     </td>

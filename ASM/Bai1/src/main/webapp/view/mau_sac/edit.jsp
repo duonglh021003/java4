@@ -19,7 +19,7 @@
 </div>
 <div class="col-8 offset-2">
     <form method="POST"
-          action="/Bai1_war_exploded/mau-sac/update?id=${ ms.id }">
+          action="/Bai1_war_exploded/mau-sac/update?ma=${ ms.ma }">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
@@ -27,7 +27,7 @@
             </div>
             <div class="col-6">
                 <label>Tên</label>
-                <input type="text" name="ten" class="form-control" value="${ ms.ten }" />
+                <input type="text" name="ten" class="form-control" value="${ ms.ten }" required/>
             </div>
         </div>
 

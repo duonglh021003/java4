@@ -49,8 +49,8 @@ public class CuaHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        CuaHang ch = this.chRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        CuaHang ch = this.chRepo.findByMa(ma);
         request.setAttribute("ch", ch);
 //        request.getRequestDispatcher("/view/cua_hang/edit.jsp")
 //                .forward(request, response);
@@ -63,8 +63,8 @@ public class CuaHangServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        CuaHang ch = this.chRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        CuaHang ch = this.chRepo.findByMa(ma);
         this.chRepo.delete(ch);
         response.sendRedirect("/Bai1_war_exploded/cua-hang/index");
     }
@@ -127,8 +127,8 @@ public class CuaHangServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
-            Integer id = Integer.parseInt(request.getParameter("id"));
-            CuaHang ch = this.chRepo.findByMa(id);
+            String ma = request.getParameter("ma");
+            CuaHang ch = this.chRepo.findByMa(ma);
             BeanUtils.populate(ch, request.getParameterMap());
             this.chRepo.update(ch);
         } catch (Exception e) {

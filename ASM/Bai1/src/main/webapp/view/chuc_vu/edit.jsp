@@ -19,7 +19,7 @@
 </div>
 <div class="col-8 offset-2">
     <form method="POST"
-          action="/Bai1_war_exploded/chuc-vu/update?id=${ cv.id }">
+          action="/Bai1_war_exploded/chuc-vu/update?ma=${ cv.ma }">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>

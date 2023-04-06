@@ -69,8 +69,8 @@ public class MauSacServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        MauSac ms = this.msRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        MauSac ms = this.msRepo.findByMa(ma);
         request.setAttribute("ms", ms);
 //        String ma = request.getParameter("ma");
 //        QLMauSac kh = this.spRepo.findByMa(ma);
@@ -86,8 +86,8 @@ public class MauSacServlet extends HttpServlet {
 //        String ma = request.getParameter("ma");
 //        QLMauSac sp = this.spRepo.findByMa(ma);
 //        this.spRepo.delete(sp);
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        MauSac ms = this.msRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        MauSac ms = this.msRepo.findByMa(ma);
         this.msRepo.delete(ms);
         response.sendRedirect("/Bai1_war_exploded/mau-sac/index");
     }
@@ -125,8 +125,8 @@ public class MauSacServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
-            Integer id = Integer.parseInt(request.getParameter("id"));
-            MauSac ms = this.msRepo.findByMa(id);
+            String ma = request.getParameter("ma");
+            MauSac ms = this.msRepo.findByMa(ma);
             BeanUtils.populate(ms, request.getParameterMap());
             this.msRepo.update(ms);
         } catch (Exception e) {

@@ -68,11 +68,11 @@ public class NsxRepository {
         return query.getResultList();
     }
 
-    public Nsx findByMa(Integer id)
+    public Nsx findByMa(String ma)
     {
-        String hql = "SELECT obj FROM Nsx obj WHERE obj.Id = ?1";
+        String hql = "SELECT obj FROM Nsx obj WHERE obj.Ma = ?1";
         TypedQuery<Nsx> query = this.hSession.createQuery(hql, Nsx.class);
-        query.setParameter(1, id);
+        query.setParameter(1, ma);
         return query.getSingleResult();
     }
 }

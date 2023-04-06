@@ -10,6 +10,7 @@ import utils.HibernateUtils;
 import java.util.List;
 
 public class ChucVuRepository {
+
     private Session hSession;
 
     public ChucVuRepository()
@@ -66,11 +67,11 @@ public class ChucVuRepository {
         return query.getResultList();
     }
 
-    public ChucVu findByMa(Integer id)
+    public ChucVu findByMa(String ma)
     {
-        String hql = "SELECT obj FROM ChucVu obj WHERE obj.Id = ?1";
+        String hql = "SELECT obj FROM ChucVu obj WHERE obj.ma = ?1";
         TypedQuery<ChucVu> query = this.hSession.createQuery(hql, ChucVu.class);
-        query.setParameter(1, id);
+        query.setParameter(1, ma);
         return query.getSingleResult();
     }
 }

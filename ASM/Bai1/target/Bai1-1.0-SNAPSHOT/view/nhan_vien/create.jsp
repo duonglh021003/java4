@@ -24,56 +24,56 @@
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>
-                <input type="text" name="ma" class="form-control" />
+                <input type="text" name="ma" class="form-control" required />
             </div>
             <div class="col-6">
                 <label>Họ</label>
-                <input type="text" name="ho" class="form-control" />
+                <input type="text" name="ho" class="form-control" required />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Tên đệm</label>
-                <input type="text" name="ten_dem" class="form-control" />
+                <input type="text" name="tenDem" class="form-control" required />
             </div>
             <div class="col-6">
                 <label>Tên</label>
-                <input type="text" name="ten" class="form-control" />
+                <input type="text" name="ten" class="form-control" required />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Giới tính</label>
-                <select name="gioi_tinh" class="form-select">
+                <select name="gioiTinh" class="form-select" >
                     <option value="nam">nam</option>
                     <option value="nu">nữ</option>
                 </select>
             </div>
             <div class="col-6">
                 <label>Ngày sinh</label>
-                <input type="date" name="ngay_sinh" class="form-control" />
+                <input type="date" name="ngaySinh" class="form-control" required />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Địa chỉ</label>
-                <input type="text" name="dia_chi" class="form-control" />
+                <input type="text" name="diaChi" class="form-control" required />
             </div>
             <div class="col-6">
                 <label>SDT</label>
-                <input type="tel" name="sdt" class="form-control" />
+                <input type="tel" name="sdt" class="form-control"required />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mật khẩu</label>
-                <input type="password" name="mat_khau" class="form-control" />
+                <input type="password" name="matKhau" class="form-control" required/>
             </div>
             <div class="col-6">
                 <label>idCH</label>
                 <select name="ch" class="form-select">
                     <c:forEach items="${ danhSachCH }" var="ch">
-                        <option value="${ ch.id }">${ ch.ten }</option>
+                        <option value="${ ch.ma }">${ ch.ten }</option>
                     </c:forEach>
                 </select>
             </div>
@@ -84,13 +84,13 @@
                 <label>idCH</label>
                 <select name="cv" class="form-select">
                     <c:forEach items="${ danhSachCV }" var="cv">
-                        <option value="${ cv.id }">${ cv.ten }</option>
+                        <option value="${ cv.ma }">${ cv.ten }</option>
                     </c:forEach>
                 </select>
             </div>
             <div class="col-6">
                 <label>trạng thái</label>
-                <input type="text" name="trang_thai" class="form-control" />
+                <input type="text" name="trangThai" class="form-control" required />
             </div>
         </div>
         <div class="row mt-3">

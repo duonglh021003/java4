@@ -41,7 +41,7 @@
                     <td>${ cv.ten }</td>
                     <td>
                         <a class="btn btn-primary"
-                           href="/Bai1_war_exploded/chuc-vu/edit?id=${ cv.id }">
+                           href="/Bai1_war_exploded/chuc-vu/edit?ma=${ cv.ma }">
                             Cập nhật
                         </a>
                     </td>

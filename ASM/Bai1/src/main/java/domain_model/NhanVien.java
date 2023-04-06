@@ -3,7 +3,8 @@ package domain_model;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+
+import java.sql.Date;
 import java.util.UUID;
 
 @Entity
@@ -30,7 +31,7 @@ public class NhanVien {
     private String gioiTinh;
 
     @Column(name="NgaySinh")
-    private Date ngaySinh;
+    private Date     ngaySinh;
 
     @Column(name="DiaChi")
     private String diaChi;
@@ -62,6 +63,7 @@ public class NhanVien {
 
     public NhanVien() {
     }
+
 
 
     public int getId() {

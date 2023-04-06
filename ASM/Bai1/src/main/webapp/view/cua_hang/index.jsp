@@ -47,13 +47,13 @@
                     <td>${ ch.quocGia }</td>
                     <td>
                         <a class="btn btn-primary"
-                           href="/Bai1_war_exploded/cua-hang/edit?id=${ ch.id }">
+                           href="/Bai1_war_exploded/cua-hang/edit?ma=${ ch.ma }">
                             Cập nhật
                         </a>
                     </td>
                     <td>
                         <a class="btn btn-danger"
-                           href="/Bai1_war_exploded/cua-hang/delete?id=${ ch.id }">
+                           href="/Bai1_war_exploded/cua-hang/delete?ma=${ ch.ma }">
                             Xóa
                         </a>
                     </td>

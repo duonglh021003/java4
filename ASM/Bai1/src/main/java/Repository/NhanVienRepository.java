@@ -48,6 +48,7 @@ public class NhanVienRepository {
         }
     }
 
+
     public void delete(NhanVien nv)
     {
         Transaction transaction = this.hSession.getTransaction();
@@ -88,11 +89,11 @@ public class NhanVienRepository {
 
     }
 
-    public NhanVien findByMa(Integer id)
+    public NhanVien findByMa(String ma)
     {
-        String hql = "SELECT obj FROM NhanVien obj WHERE obj.id = ?1";
+        String hql = "SELECT obj FROM NhanVien obj WHERE obj.ma = ?1";
         TypedQuery<NhanVien> query = this.hSession.createQuery(hql, NhanVien.class);
-        query.setParameter(1, id);
+        query.setParameter(1, ma);
         return query.getSingleResult();
     }
 }

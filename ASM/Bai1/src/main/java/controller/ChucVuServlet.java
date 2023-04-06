@@ -69,8 +69,8 @@ public class ChucVuServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        ChucVu cv = this.cvRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        ChucVu cv = this.cvRepo.findByMa(ma);
         request.setAttribute("cv", cv);
 //        request.getRequestDispatcher("/view/chuc_vu/edit.jsp")
 //                .forward(request, response);
@@ -82,8 +82,8 @@ public class ChucVuServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        ChucVu cv = this.cvRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        ChucVu cv = this.cvRepo.findByMa(ma);
         this.cvRepo.delete(cv);
         response.sendRedirect("/Bai1_war_exploded/chuc-vu/index");
     }
@@ -120,8 +120,8 @@ public class ChucVuServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
-            Integer id = Integer.parseInt(request.getParameter("id"));
-            ChucVu cv = this.cvRepo.findByMa(id);
+            String ma = request.getParameter("ma");
+            ChucVu cv = this.cvRepo.findByMa(ma);
             BeanUtils.populate(cv, request.getParameterMap());
             this.cvRepo.update(cv);
         } catch (Exception e) {

@@ -27,20 +27,21 @@
                 <input type="text" name="id" class="form-control" disabled/>
             </div>
             <div class="col-6">
-                <label>IdSP</label>
+                <label>San pham</label>
                  <select name="sp" class="form-select"  >
                             <c:forEach items="${ danhSachSP }" var="sp">
-                                <option value="${ sp.id }">${ sp.ten }</option>
+                                <option value="${ sp.ma }">${ sp.ten }</option>
                             </c:forEach>
                  </select>
             </div>
+
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>IdNsx</label>
                 <select name="nsx" class="form-select"  >
                     <c:forEach items="${ danhSachNsx }" var="nsx">
-                        <option value="${ nsx.id }">${ nsx.ten }</option>
+                        <option value="${ nsx.ma }">${ nsx.ten }</option>
                     </c:forEach>
                 </select>
             </div>
@@ -48,7 +49,7 @@
                 <label>IdMauSac</label>
                 <select name="ms" class="form-select"  >
                     <c:forEach items="${ danhSachMS }" var="ms">
-                        <option value="${ ms.id }">${ ms.ten }</option>
+                        <option value="${ ms.ma }">${ ms.ten }</option>
                     </c:forEach>
                 </select>
             </div>
@@ -58,19 +59,19 @@
                 <label>dongsp</label>
                 <select name="sp" class="form-select"  >
                     <c:forEach items="${ danhSachDongSP }" var="dongsp">
-                        <option value="${ dongsp.id }">${ dongsp.ten }</option>
+                        <option value="${ dongsp.ma }">${ dongsp.ten }</option>
                     </c:forEach>
                 </select>
             </div>
             <div class="col-6">
                 <label>NamBH</label>
-                <input type="tel" name="nam_bh" class="form-control" />
+                <input type="tel" name="namBH" class="form-control" />
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-6">
                 <label>MoTa</label>
-                <input type="text" name="mo_ta" class="form-control" />
+                <input type="text" name="moTa" class="form-control" />
             </div>
             <div class="col-6">
                 <label>SoLuongTon</label>

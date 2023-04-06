@@ -69,11 +69,11 @@ public class SanPhamRepository {
         return query.getResultList();
     }
 
-    public SanPham findByMa(Integer id)
+    public SanPham findByMa(String ma)
     {
-        String hql = "SELECT obj FROM SanPham obj WHERE obj.Id = ?1";
+        String hql = "SELECT obj FROM SanPham obj WHERE obj.Ma = ?1";
         TypedQuery<SanPham> query = this.hSession.createQuery(hql, SanPham.class);
-        query.setParameter(1, id);
+        query.setParameter(1, ma);
         return query.getSingleResult();
     }
 }

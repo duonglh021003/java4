@@ -41,13 +41,13 @@
                     <td>${ sp.ten }</td>
                     <td>
                         <a class="btn btn-primary"
-                           href="/Bai1_war_exploded/san-pham/edit?id=${ sp.id }">
+                           href="/Bai1_war_exploded/san-pham/edit?ma=${ sp.ma }">
                             Cập nhật
                         </a>
                     </td>
                     <td>
                         <a class="btn btn-danger"
-                           href="/Bai1_war_exploded/san-pham/delete?id=${ sp.id }">
+                           href="/Bai1_war_exploded/san-pham/delete?ma=${ sp.ma }">
                             Xóa
                         </a>
                     </td>

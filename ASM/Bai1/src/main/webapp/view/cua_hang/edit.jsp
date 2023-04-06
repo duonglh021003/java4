@@ -16,7 +16,7 @@
 <h1 style="text-align: center;">cửa hàng</h1>
 <div class="col-8 offset-2">
     <form method="POST"
-          action="/Bai1_war_exploded/cua-hang/update?id=${ ch.id }">
+          action="/Bai1_war_exploded/cua-hang/update?ma=${ ch.ma }">
         <div class="row mt-3">
             <div class="col-6">
                 <label>Mã</label>

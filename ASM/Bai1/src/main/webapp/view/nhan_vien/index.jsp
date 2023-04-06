@@ -63,13 +63,13 @@
                     <td>${ nv.trangThai }</td>
                     <td>
                         <a class="btn btn-primary"
-                           href="/Bai1_war_exploded/nhan-vien/edit?id=${ nv.id }">
+                           href="/Bai1_war_exploded/nhan-vien/edit?ma=${ nv.ma }">
                             Cập nhật
                         </a>
                     </td>
                     <td>
                         <a class="btn btn-danger"
-                           href="/Bai1_war_exploded/nhan-vien/delete?id=${ nv.id }">
+                           href="/Bai1_war_exploded/nhan-vien/delete?ma=${ nv.ma }">
                             Xóa
                         </a>
                     </td>

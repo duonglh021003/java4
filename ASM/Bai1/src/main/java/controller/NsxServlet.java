@@ -70,8 +70,8 @@ public class NsxServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        Nsx nsx = this.nsxRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        Nsx nsx = this.nsxRepo.findByMa(ma);
         request.setAttribute("nsx", nsx);
         request.setAttribute("view", "/view/Nsx/edit.jsp");
         request.getRequestDispatcher("/view/layout.jsp")
@@ -81,8 +81,8 @@ public class NsxServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        Nsx nsx = this.nsxRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        Nsx nsx = this.nsxRepo.findByMa(ma);
         this.nsxRepo.delete(nsx);
         response.sendRedirect("/Bai1_war_exploded/Nsx/index");
     }
@@ -120,8 +120,8 @@ public class NsxServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
-            Integer id = Integer.parseInt(request.getParameter("id"));
-            Nsx nsx = this.nsxRepo.findByMa(id);
+            String ma = request.getParameter("ma");
+            Nsx nsx = this.nsxRepo.findByMa(ma);
             BeanUtils.populate(nsx, request.getParameterMap());
             this.nsxRepo.update(nsx);
         } catch (Exception e) {

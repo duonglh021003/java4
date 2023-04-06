@@ -10,6 +10,8 @@ import org.apache.commons.beanutils.BeanUtils;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 @WebServlet({
         "/chi-tiet-sp/index",    // GET
@@ -57,21 +59,21 @@ public class ChiTietSPServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        ChiTietSp ctsp = this.chiTietSPRepo.findByMa(id);
-        request.setAttribute("ctsp", ctsp);
-
-        SanPham sp = this.spRepo.findByMa(id);
-        request.setAttribute("sp", sp);
-
-        Nsx nsx = this.nsxRepo.findByMa(id);
-        request.setAttribute("nsx", nsx);
-
-        MauSac ms = this.msRepo.findByMa(id);
-        request.setAttribute("ms", ms);
-
-        DongSp dongsp = this.dongSPRepo.findByMa(id);
-        request.setAttribute("dongsp", dongsp);
+//        Integer id = Integer.parseInt(request.getParameter("id"));
+//        ChiTietSp ctsp = this.chiTietSPRepo.findByMa(id);
+//        request.setAttribute("ctsp", ctsp);
+//
+//        SanPham sp = this.spRepo.findByMa(id);
+//        request.setAttribute("sp", sp);
+//
+//        Nsx nsx = this.nsxRepo.findByMa(id);
+//        request.setAttribute("nsx", nsx);
+//
+//        MauSac ms = this.msRepo.findByMa(id);
+//        request.setAttribute("ms", ms);
+//
+//        DongSp dongsp = this.dongSPRepo.findByMa(id);
+//        request.setAttribute("dongsp", dongsp);
 
         request.setAttribute("view", "/view/chi_tiet_sp/edit.jsp");
         request.getRequestDispatcher("/view/layout.jsp")
@@ -127,21 +129,50 @@ public class ChiTietSPServlet extends HttpServlet {
         }
     }
 
-    protected void store(
-            HttpServletRequest request,
-            HttpServletResponse response
-    ) throws ServletException, IOException {
-        try {
-                ChiTietSp ctsp = new ChiTietSp();
-                BeanUtils.populate(ctsp, request.getParameterMap());
-                this.chiTietSPRepo.insert(ctsp);
+//    protected void store(
+//            HttpServletRequest request,
+//            HttpServletResponse response
+//    ) throws ServletException, IOException {
+//        try {
+//                ChiTietSp ctsp = new ChiTietSp();
+//                BeanUtils.populate(ctsp, request.getParameterMap());
+//                this.chiTietSPRepo.insert(ctsp);
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        response.sendRedirect("/Bai1_war_exploded/chi-tiet-sp/index");
+//
+//    }
+protected void store(
+        HttpServletRequest request,
+        HttpServletResponse response
+) throws ServletException, IOException {
+    ChiTietSp ctsp = new ChiTietSp();
 
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        response.sendRedirect("/Bai1_war_exploded/chi-tiet-sp/index");
+    String maSP = request.getParameter("sp");
+    String maNSX = request.getParameter("nsx");
+    String maMS = request.getParameter("ms");
+    String maDongSP = request.getParameter("dongsp");
 
+    ctsp.setSp(spRepo.findByMa(maSP));
+    ctsp.setNsx(nsxRepo.findByMa(maNSX));
+    ctsp.setMs(msRepo.findByMa(maMS));
+    ctsp.setDongsp(dongSPRepo.findByMa(maDongSP));
+    Map<String, String[] > parMap = new HashMap<>(request.getParameterMap());
+    parMap.remove("sp");
+    parMap.remove("nsx");
+    parMap.remove("ms");
+    parMap.remove("dongsp");
+    try {
+        BeanUtils.populate(ctsp, parMap);
+        this.chiTietSPRepo.insert(ctsp);
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+    response.sendRedirect("/Bai1_war_exploded/chi-tiet-sp/index");
+
+}
 
     protected void update(
             HttpServletRequest request,

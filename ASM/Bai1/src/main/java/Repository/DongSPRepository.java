@@ -69,11 +69,11 @@ public class DongSPRepository {
         return query.getResultList();
     }
 
-    public DongSp findByMa(Integer id)
+    public DongSp findByMa(String ma)
     {
-        String hql = "SELECT obj FROM DongSp obj WHERE obj.Id = ?1";
+        String hql = "SELECT obj FROM DongSp obj WHERE obj.Ma = ?1";
         TypedQuery<DongSp> query = this.hSession.createQuery(hql, DongSp.class);
-        query.setParameter(1, id);
+        query.setParameter(1, ma);
         return query.getSingleResult();
     }
 }

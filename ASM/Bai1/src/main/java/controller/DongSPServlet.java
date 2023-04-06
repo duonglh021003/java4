@@ -73,8 +73,8 @@ public class DongSPServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        DongSp kh = this.dongSPRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        DongSp kh = this.dongSPRepo.findByMa(ma);
         request.setAttribute("dongsp", kh);
 //        request.getRequestDispatcher("/view/DongSP/edit.jsp")
 //                .forward(request, response);
@@ -86,8 +86,8 @@ public class DongSPServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        DongSp sp = this.dongSPRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        DongSp sp = this.dongSPRepo.findByMa(ma);
         this.dongSPRepo.delete(sp);
         response.sendRedirect("/Bai1_war_exploded/DongSP/index");
     }
@@ -125,8 +125,8 @@ public class DongSPServlet extends HttpServlet {
             HttpServletResponse response
     ) throws ServletException, IOException {
         try {
-            Integer id = Integer.parseInt(request.getParameter("id"));
-            DongSp ms = this.dongSPRepo.findByMa(id);
+            String ma = request.getParameter("ma");
+            DongSp ms = this.dongSPRepo.findByMa(ma);
             BeanUtils.populate(ms, request.getParameterMap());
             this.dongSPRepo.update(ms);
         } catch (Exception e) {

@@ -67,11 +67,11 @@ public class MauSacRepository {
         return query.getResultList();
     }
 
-    public MauSac findByMa(Integer id)
+    public MauSac findByMa(String ma)
     {
-        String hql = "SELECT obj FROM MauSac obj WHERE obj.Id = ?1";
+        String hql = "SELECT obj FROM MauSac obj WHERE obj.Ma = ?1";
         TypedQuery<MauSac> query = this.hSession.createQuery(hql, MauSac.class);
-        query.setParameter(1, id);
+        query.setParameter(1, ma);
         return query.getSingleResult();
     }
 }

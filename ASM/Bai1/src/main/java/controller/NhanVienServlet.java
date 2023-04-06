@@ -4,6 +4,7 @@ import Repository.ChucVuRepository;
 import Repository.CuaHangRepository;
 import Repository.KhachHangRepository;
 import Repository.NhanVienRepository;
+import domain_model.ChucVu;
 import domain_model.NhanVien;
 import domain_model.SanPham;
 import jakarta.servlet.*;
@@ -15,6 +16,8 @@ import view_model.QLNhanVien;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.Map;
 
 @WebServlet({
         "/nhan-vien/index",    // GET
@@ -58,11 +61,12 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        NhanVien nv = this.nvRepo.findByMa(id);
+        request.setAttribute("danhSachCH",this.chRepo.findAll());
+        request.setAttribute("danhSachCV",this.cvRepo.findAll());
+        String ma = request.getParameter("ma");
+        NhanVien nv = this.nvRepo.findByMa(ma);
         request.setAttribute("nv", nv);
-//        request.getRequestDispatcher("/view/nhan_vien/edit.jsp")
-//                .forward(request, response);
+
         request.setAttribute("view", "/view/nhan_vien/edit.jsp");
         request.getRequestDispatcher("/view/layout.jsp")
                 .forward(request, response);
@@ -72,8 +76,8 @@ public class NhanVienServlet extends HttpServlet {
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
-        Integer id = Integer.parseInt(request.getParameter("id"));
-        NhanVien nv = this.nvRepo.findByMa(id);
+        String ma = request.getParameter("ma");
+        NhanVien nv = this.nvRepo.findByMa(ma);
         this.nvRepo.delete(nv);
         response.sendRedirect("/Bai1_war_exploded/nhan-vien/index");
     }
@@ -116,31 +120,48 @@ public class NhanVienServlet extends HttpServlet {
         }
     }
 
+
     protected void store(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
+
+        NhanVien domainModelKH = new NhanVien();
+        String maCV = request.getParameter("cv");
+        String maCH = request.getParameter("ch");
+        domainModelKH.setCh(chRepo.findByMa(maCH));
+        domainModelKH.setCv(cvRepo.findByMa(maCV));
+        Map<String, String[] > parMap = new HashMap<>(request.getParameterMap());
+        parMap.remove("cv");
+        parMap.remove("ch");
         try {
-            NhanVien nv = new NhanVien();
-            BeanUtils.populate(nv, request.getParameterMap());
-            this.nvRepo.insert(nv);
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
+
+            BeanUtils.populate(domainModelKH, parMap);
+            this.nvRepo.insert(domainModelKH);
+        } catch (Exception e) {
             e.printStackTrace();
         }
         response.sendRedirect("/Bai1_war_exploded/nhan-vien/index");
 
     }
-
     protected void update(
             HttpServletRequest request,
             HttpServletResponse response
     ) throws ServletException, IOException {
+
+
         try {
-            Integer id = Integer.parseInt(request.getParameter("id"));
-            NhanVien nv = this.nvRepo.findByMa(id);
-            BeanUtils.populate(nv, request.getParameterMap());
+            String ma = request.getParameter("ma");
+            NhanVien nv = this.nvRepo.findByMa(ma);
+
+            String maCV = request.getParameter("cv");
+            String maCH = request.getParameter("ch");
+            nv.setCh(chRepo.findByMa(maCH));
+            nv.setCv(cvRepo.findByMa(maCV));
+            Map<String, String[] > parMap = new HashMap<>(request.getParameterMap());
+            parMap.remove("cv");
+            parMap.remove("ch");
+            BeanUtils.populate(nv, parMap);
             this.nvRepo.update(nv);
         } catch (Exception e) {
             e.printStackTrace();
