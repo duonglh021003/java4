@@ -1,19 +1,28 @@
-Config_JAVA_WEB
-Config jsp
+# Config_JAVA_WEB
+
+## Config jsp 
+```
 spring.mvc.view.prefix: /WEB-INF/view/
 spring.mvc.view.suffix: .jsp
-Hibernate
+```
+## Hibernate
+
+```
 <dependency>
     <groupId>org.hibernate</groupId>
     <artifactId>hibernate-core-jakarta</artifactId>
     <version>5.6.10.Final</version>
 </dependency>
-Nhúng Tomcat
+```
+## Nhúng Tomcat 
+```
 <dependency>
     <groupId>org.apache.tomcat.embed</groupId>
     <artifactId>tomcat-embed-jasper</artifactId>
 </dependency>
-JSTL
+```
+## JSTL 
+```
 <dependency>
     <groupId>jakarta.servlet.jsp.jstl</groupId>
     <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
@@ -24,36 +33,57 @@ JSTL
     <artifactId>jakarta.servlet.jsp.jstl</artifactId>
     <version>2.0.0</version>
 </dependency>
-Lombox
+```
+
+## Lombox
+```
 <dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
     <version>1.18.24</version>
     <scope>provided</scope>
 </dependency>
-MSSQL JDBC
+```
+
+## MSSQL JDBC
+``` 
 <dependency>
     <groupId>com.microsoft.sqlserver</groupId>
     <artifactId>mssql-jdbc</artifactId>
     <version>9.4.1.jre16</version>
 </dependency>
-MySQL
+```
+
+## MySQL
+``` 
 <dependency>
     <groupId>mysql</groupId>
     <artifactId>mysql-connector-java</artifactId>
     <version>8.0.31</version>
 </dependency>
-JPA
+```
+
+## JPA 
+```
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
-Spring Validator
+```
+
+## Spring Validator 
+``` 
 <dependency>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-validation</artifactId>
 </dependency>
-Loop - JSTL
+```
+## Loop - JSTL 
+```
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
-Form - JSTL
+```
+
+## Form - JSTL 
+``` 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+```
