@@ -19,6 +19,12 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="validation-enabled" value="true" />
+        <setting name="validation-enabled" value="true" />
+        <setting name="validation-enabled" value="true" />
+        <setting name="validation-enabled" value="true" />
+        <setting name="validation-enabled" value="true" />
+        <setting name="validation-enabled" value="true" />
+        <setting name="validation-enabled" value="true" />
         <datasource-mapping />
         <naming-strategy-map />
       </configuration>
